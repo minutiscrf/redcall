@@ -3,7 +3,6 @@
 namespace Bundles\PasswordLoginBundle\Command;
 
 use App\Entity\User;
-use Bundles\PasswordLoginBundle\Base\BaseCommand;
 use Bundles\PasswordLoginBundle\Manager\UserManager;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;

@@ -162,7 +162,7 @@
 
             <br/>
 
-            {% if app.user|default(false) and app.environment == 'dev' %}
+            {% if app.user|default(false) %}
 
                 <a href="{{ path('sandbox_home') }}" class="btn btn-secondary">{{ 'sandbox.home.link'|trans }}</a>
                 &nbsp;&nbsp;

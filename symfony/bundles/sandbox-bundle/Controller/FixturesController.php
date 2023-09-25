@@ -45,6 +45,8 @@ class FixturesController extends BaseController
      */
     public function index(Request $request)
     {
+        throw $this->createNotFoundException('disabled for the hackathon');
+
         $structure = $this->getStructureForm($request);
         if ($structure->isSubmitted() && $structure->isValid()) {
             $this->fixturesManager->createStructure(

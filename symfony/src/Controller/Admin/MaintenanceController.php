@@ -86,6 +86,8 @@ class MaintenanceController extends BaseController
      */
     public function refresh()
     {
+        throw $this->createNotFoundException('disabled for the hackathon');
+
         $this->maintenanceManager->refresh();
 
         $this->addFlash('success', $this->translator->trans('maintenance.refresh_started'));
@@ -98,6 +100,8 @@ class MaintenanceController extends BaseController
      */
     public function pegassFiles()
     {
+        throw $this->createNotFoundException('disabled for the hackathon');
+
         $this->maintenanceManager->pegassFiles();
 
         $this->addFlash('success', $this->translator->trans('maintenance.pegass_started'));
@@ -110,6 +114,8 @@ class MaintenanceController extends BaseController
      */
     public function search(Request $request)
     {
+        throw $this->createNotFoundException('disabled for the hackathon');
+
         return $this->render('admin/maintenance/search.html.twig', [
             'form' => $this->createSearchForm($request)->createView(),
         ]);
@@ -120,6 +126,8 @@ class MaintenanceController extends BaseController
      */
     public function searchChangeNivol(Request $request)
     {
+        throw $this->createNotFoundException('disabled for the hackathon');
+
         return new JsonResponse([
             'content' => htmlentities($this->getPegassEntity($request)->getXml()),
         ]);
@@ -130,6 +138,8 @@ class MaintenanceController extends BaseController
      */
     public function searchChangeExpression(Request $request)
     {
+        throw $this->createNotFoundException('disabled for the hackathon');
+
         $entity     = $this->getPegassEntity($request);
         $expression = $this->createSearchForm($request)->get('expression')->getData();
 

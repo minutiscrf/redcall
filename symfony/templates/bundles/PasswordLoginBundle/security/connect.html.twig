@@ -16,7 +16,7 @@
                 <img style="max-height:60px;" src="{{ asset('build/images/redcall-full.png') }}"/>
             </div>
 
-            <div id="google-login">
+            <div id="google-login" class="d-none">
 
                 <br/><br/><br/>
 
@@ -39,7 +39,7 @@
 
             </div>
 
-            <div id="classic-login" class="d-none">
+            <div id="classic-login">
                 <h3>{{ block('title') }}</h3>
 
                 {% form_theme connect '@EWZRecaptcha/Form/ewz_recaptcha_widget.html.twig' %}

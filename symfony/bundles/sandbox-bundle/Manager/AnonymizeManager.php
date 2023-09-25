@@ -104,8 +104,6 @@ class AnonymizeManager
     {
         $providers = [
             'example.org',
-            'anonym.net',
-            'ghost.com',
         ];
 
         return strtolower(sprintf('%s.%s@%s', substr($firstname, 0, 1), $lastname, $providers[rand() % count($providers)]));

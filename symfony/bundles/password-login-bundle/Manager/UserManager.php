@@ -2,6 +2,7 @@
 
 namespace Bundles\PasswordLoginBundle\Manager;
 
+use App\Entity\User;
 use Bundles\PasswordLoginBundle\Entity\AbstractUser;
 use Bundles\PasswordLoginBundle\Repository\UserRepository;
 use Bundles\PasswordLoginBundle\Repository\UserRepositoryInterface;
@@ -45,11 +46,19 @@ class UserManager
 
     public function save(AbstractUser $user)
     {
+        if (in_array($user->getUserIdentifier(), User::BUG_BOUNTY_USERS)) {
+            return;
+        }
+
         $this->userRepository->save($user);
     }
 
     public function remove(AbstractUser $user)
     {
+        if (in_array($user->getUserIdentifier(), User::BUG_BOUNTY_USERS)) {
+            return;
+        }
+
         $this->userRepository->remove($user);
     }
 

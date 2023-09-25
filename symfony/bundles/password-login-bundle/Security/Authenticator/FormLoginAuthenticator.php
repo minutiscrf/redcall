@@ -98,7 +98,7 @@ class FormLoginAuthenticator extends AbstractFormLoginAuthenticator
             'route_params' => $request->attributes->get('_route_params'),
         ]);
 
-        parent::start($request, $authException);
+        return new RedirectResponse($this->getLoginUrl());
     }
 
     public function supports(Request $request)

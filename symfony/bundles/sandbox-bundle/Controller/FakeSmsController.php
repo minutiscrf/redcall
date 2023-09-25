@@ -70,6 +70,8 @@ class FakeSmsController extends BaseController
      */
     public function clearAction(string $csrf)
     {
+        throw $this->createNotFoundException('disabled for the hackathon');
+
         $this->validateCsrfOrThrowNotFoundException('fake_sms', $csrf);
 
         $this->fakeSmsManager->truncate();

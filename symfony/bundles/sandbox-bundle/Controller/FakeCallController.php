@@ -73,6 +73,8 @@ class FakeCallController extends BaseController
      */
     public function clearAction(string $csrf)
     {
+        throw $this->createNotFoundException('disabled for the hackathon');
+
         $this->validateCsrfOrThrowNotFoundException('fake_call', $csrf);
 
         $this->fakeCallManager->truncate();

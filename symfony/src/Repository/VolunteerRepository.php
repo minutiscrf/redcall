@@ -234,10 +234,8 @@ class VolunteerRepository extends BaseRepository
                ->setMaxResults(1000);
 
             $iterator = $qb->getQuery()->toIterable();
-
-            while (($row = $iterator->next()) !== false) {
+            foreach ($iterator as $entity) {
                 /* @var Volunteer $entity */
-                $entity = reset($row);
 
                 if (false === $return = $callback($entity)) {
                     $stop = true;

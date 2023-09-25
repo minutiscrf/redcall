@@ -23,6 +23,14 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class User extends AbstractUser implements LockableInterface
 {
+    // Basically, cannot update these users
+    const BUG_BOUNTY_USERS = [
+        'root@example.com',
+        'admin@example.com',
+        'api@example.com',
+        'user@example.com',
+    ];
+
     /**
      * @ORM\Column(type="string", length=5)
      */

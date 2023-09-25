@@ -26,6 +26,8 @@ class AnonymizeController extends BaseController
      */
     public function anonymizeAction(string $csrf)
     {
+        throw $this->createNotFoundException('disabled for the hackathon');
+
         $this->validateCsrfOrThrowNotFoundException('anonymize', $csrf);
 
         $this->anonymizeManager->anonymizeDatabase();

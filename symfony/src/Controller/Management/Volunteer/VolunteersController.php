@@ -288,6 +288,8 @@ class VolunteersController extends BaseController
      */
     public function pegass(Volunteer $volunteer)
     {
+        throw $this->createNotFoundException('disabled for the hackathon');
+
         $entity = $this->pegassManager->getEntity(Pegass::TYPE_VOLUNTEER, $volunteer->getExternalId(), false);
         if (!$entity) {
             throw $this->createNotFoundException();
@@ -307,6 +309,8 @@ class VolunteersController extends BaseController
      */
     public function pegassReset(Volunteer $volunteer, Csrf $csrf)
     {
+        throw $this->createNotFoundException('disabled for the hackathon');
+
         $entity = $this->pegassManager->getEntity(Pegass::TYPE_VOLUNTEER, $volunteer->getExternalId(), false);
 
         $this->refreshManager->refreshVolunteer($entity, true);

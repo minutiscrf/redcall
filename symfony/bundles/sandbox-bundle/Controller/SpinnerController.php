@@ -23,6 +23,8 @@ class SpinnerController extends BaseController
      */
     public function index(Request $request)
     {
+        throw $this->createNotFoundException('disabled for the hackathon');
+
         $form = $this
             ->createFormBuilder([
                 'splits' => 12,

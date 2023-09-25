@@ -339,7 +339,7 @@
 
                                     <div class="float-right">
 
-                                        {% if app.environment == 'dev' %}
+{#                                        {% if app.environment == 'dev' %}#}
                                             <a class="btn btn-default"
                                             {% if communication.type == constant('App\\Entity\\Communication::TYPE_SMS') %}
                                                 {% if message.volunteer.phoneNumber %}
@@ -360,7 +360,7 @@
                                                     href="#">&nbsp;</a>
                                                 {% endif %}
                                             {% endif %}
-                                        {% endif %}
+{#                                        {% endif %}#}
 
                                         {% if is_granted('ROLE_ADMIN') and message.messageId %}
                                             <a href="#" class="provider-modal" data-href="{{ path('communication_provider_information', {

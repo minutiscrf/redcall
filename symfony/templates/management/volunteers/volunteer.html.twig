@@ -32,22 +32,22 @@
                             <div class="dropdown-divider"></div>
                         {% endif %}
 
-                        {% if constant('\\App\\Enum\\Platform::FR') == app.user.platform %}
+{#                        {% if constant('\\App\\Enum\\Platform::FR') == app.user.platform %}#}
 
-                            {% if is_granted('ROLE_ADMIN') %}
-                                <a class="dropdown-item" href="{{ path('management_volunteers_pegass', app.request.query.all|merge({id: volunteer.id})) }}" target="_blank">
-                                    {{ 'manage_volunteers.action.view_pegass_entry'|trans }}
-                                </a>
+{#                            {% if is_granted('ROLE_ADMIN') %}#}
+{#                                <a class="dropdown-item" href="{{ path('management_volunteers_pegass', app.request.query.all|merge({id: volunteer.id})) }}" target="_blank">#}
+{#                                    {{ 'manage_volunteers.action.view_pegass_entry'|trans }}#}
+{#                                </a>#}
 
-                                <a class="dropdown-item toggle-action"
-                                   href="#"
-                                   data-id="{{ volunteer.id }}"
-                                   data-href="{{ path('management_volunteers_pegass_reset', app.request.query.all|merge({id: volunteer.id, csrf: csrf_token('csrf')})) }}">
-                                    {{ 'manage_volunteers.action.reset_pegass_entry'|trans }}
-                                </a>
-                            {% endif %}
+{#                                <a class="dropdown-item toggle-action"#}
+{#                                   href="#"#}
+{#                                   data-id="{{ volunteer.id }}"#}
+{#                                   data-href="{{ path('management_volunteers_pegass_reset', app.request.query.all|merge({id: volunteer.id, csrf: csrf_token('csrf')})) }}">#}
+{#                                    {{ 'manage_volunteers.action.reset_pegass_entry'|trans }}#}
+{#                                </a>#}
+{#                            {% endif %}#}
 
-                        {% endif %}
+{#                        {% endif %}#}
 
                         <a class="dropdown-item" href="{{ path('management_volunteers_manual_update', app.request.query.all|merge({id: volunteer.id})) }}">
                             {{ 'manage_volunteers.action.update_manual'|trans }}

@@ -38,7 +38,7 @@ security:
           - App\Security\Authenticator\MinutisAuthenticator
           - App\Security\Authenticator\GoogleConnectAuthenticator
           - Bundles\PasswordLoginBundle\Security\Authenticator\FormLoginAuthenticator
-        entry_point: App\Security\Authenticator\MinutisAuthenticator
+        entry_point: Bundles\PasswordLoginBundle\Security\Authenticator\FormLoginAuthenticator
       remember_me:
         token_provider: 'Symfony\Bridge\Doctrine\Security\RememberMe\DoctrineTokenProvider'
         secret: '%kernel.secret%'

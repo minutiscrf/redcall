@@ -21,3 +21,9 @@ google_task:
 chart:
   resource: '@ChartBundle/Controller/'
   type: annotation
+
+sandbox:
+  resource: '@SandboxBundle/Controller/'
+  type: annotation
+  prefix: /sandbox
+  name_prefix: sandbox_

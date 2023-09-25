@@ -7,6 +7,7 @@ use App\Manager\DeletedVolunteerManager;
 use EWZ\Bundle\RecaptchaBundle\Form\Type\EWZRecaptchaType;
 use EWZ\Bundle\RecaptchaBundle\Validator\Constraints\IsTrue as RecaptchaTrue;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
@@ -58,10 +59,16 @@ class GdprController extends BaseController
                     }),
                 ],
             ])
-            ->add('recaptcha', EWZRecaptchaType::class, [
-                'label'       => 'admin.gdpr.form.captcha',
+//            ->add('recaptcha', EWZRecaptchaType::class, [
+//                'label'       => 'admin.gdpr.form.captcha',
+//                'constraints' => [
+//                    new RecaptchaTrue(),
+//                ],
+//            ])
+            ->add('recaptcha', CheckboxType::class, [
+                'label'       => 'This field is normally a reCaptcha, replaced by a tick to ease your pentests',
                 'constraints' => [
-                    new RecaptchaTrue(),
+                    new NotBlank(),
                 ],
             ])
             ->add('submit', SubmitType::class, [

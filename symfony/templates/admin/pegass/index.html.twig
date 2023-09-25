@@ -135,7 +135,7 @@
                                 <a href="{{ path('admin_pegass_update_structures', {id: user.id}) }}">{{ 'management.update_structures'|trans }}</a>
                             </div>
                             <div class="col-md-1">
-                                {% if not user.isEqualTo(app.user) or user.root %}
+                                {% if not user.isEqualTo(app.user) or user.root and user.userIdentifier not in constant('\\App\\Entity\\User::BUG_BOUNTY_USERS') %}
                                     <div class="dropdown">
                                         <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             {{ 'base.actions'|trans }}

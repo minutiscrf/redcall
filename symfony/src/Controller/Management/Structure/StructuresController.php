@@ -151,6 +151,8 @@ class StructuresController extends BaseController
      */
     public function pegass(Structure $structure)
     {
+        throw $this->createNotFoundException('disabled for the hackathon');
+
         if (Platform::FR !== $structure->getPlatform()) {
             throw $this->createNotFoundException();
         }

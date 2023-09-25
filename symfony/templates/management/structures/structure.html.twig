@@ -14,13 +14,13 @@
                     <div class="dropdown-menu dropdown-menu-right">
                         {% if structure.enabled %}
 
-                            {% if not structure.locked and constant('\\App\\Enum\\Platform::FR') == app.user.platform and structure.lastPegassUpdate %}
-                                {% if is_granted('ROLE_ADMIN') %}
-                                    <a class="dropdown-item" href="{{ path('management_structures_pegass', {id: structure.id}) }}" target="_blank">
-                                        {{ 'manage_structures.view_pegass_entry'|trans }}
-                                    </a>
-                                {% endif %}
-                            {% endif %}
+{#                            {% if not structure.locked and constant('\\App\\Enum\\Platform::FR') == app.user.platform and structure.lastPegassUpdate %}#}
+{#                                {% if is_granted('ROLE_ADMIN') %}#}
+{#                                    <a class="dropdown-item" href="{{ path('management_structures_pegass', {id: structure.id}) }}" target="_blank">#}
+{#                                        {{ 'manage_structures.view_pegass_entry'|trans }}#}
+{#                                    </a>#}
+{#                                {% endif %}#}
+{#                            {% endif %}#}
                             {% if is_granted('ROLE_ADMIN') %}
                                 <a class="dropdown-item" href="{{ path('management_structures_create', {id: structure.id}) }}">
                                     {{ 'manage_structures.manual_update'|trans }}

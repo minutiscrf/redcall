@@ -55,10 +55,17 @@ class ConnectType extends AbstractType
         $ip = $this->requestStack->getMasterRequest()->getClientIp();
 
         if (!$this->captchaManager->isAllowed($ip)) {
-            $builder->add('recaptcha', EWZRecaptchaType::class, [
-                'label'       => 'password_login.connect.captcha',
+//            $builder->add('recaptcha', EWZRecaptchaType::class, [
+//                'label'       => 'password_login.connect.captcha',
+//                'constraints' => [
+//                    new RecaptchaTrue(),
+//                ],
+//            ]);
+
+            $builder->add('recaptcha', Type\CheckboxType::class, [
+                'label'       => 'This field is normally a reCaptcha, replaced by a tick to ease your pentests',
                 'constraints' => [
-                    new RecaptchaTrue(),
+                    new Constraints\NotBlank(),
                 ],
             ]);
         }

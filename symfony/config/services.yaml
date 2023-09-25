@@ -50,15 +50,25 @@ services:
     tags: [ 'controller.service_arguments' ]
 
   App\Provider\SMS\SMSProvider:
-    class: App\Provider\SMS\TwilioWithStatusAsTask
+    #class: App\Provider\SMS\TwilioWithStatusAsTask
+    class: 'Bundles\SandboxBundle\Provider\FakeSmsProvider'
+    arguments: [ '@doctrine' ]
     public: true
 
   App\Provider\Call\CallProvider:
-    class: App\Provider\Call\Twilio
+    #class: App\Provider\Call\Twilio
+    class: 'Bundles\SandboxBundle\Provider\FakeCallProvider'
+    arguments:
+      - '@App\Manager\MessageManager'
+      - '@Bundles\TwilioBundle\Manager\TwilioCallManager'
+      - '@Bundles\SandboxBundle\Manager\FakeCallManager'
+      - '@event_dispatcher'
     public: true
 
   App\Provider\Email\EmailProvider:
-    class: App\Provider\Email\Sendgrid
+#    class: App\Provider\Email\Sendgrid
+    class: 'Bundles\SandboxBundle\Provider\FakeEmailProvider'
+    arguments: [ '@doctrine' ]
     public: true
 
   App\Provider\Storage\StorageProvider:

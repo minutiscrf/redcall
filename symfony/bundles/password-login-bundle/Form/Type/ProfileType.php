@@ -2,7 +2,6 @@
 
 namespace Bundles\PasswordLoginBundle\Form\Type;
 
-use Bundles\PasswordLoginBundle\Base\BaseType;
 use Bundles\PasswordLoginBundle\Manager\CaptchaManager;
 use Bundles\PasswordLoginBundle\Manager\UserManager;
 use EWZ\Bundle\RecaptchaBundle\Form\Type\EWZRecaptchaType;
@@ -131,12 +130,19 @@ class ProfileType extends AbstractType
             $ip = $this->requestStack->getMasterRequest()->getClientIp();
 
             if (!$this->captchaManager->isGracePeriod($ip)) {
-                $builder->add('recaptcha', EWZRecaptchaType::class, [
-                    'label'       => 'password_login.profile.captcha',
+//                $builder->add('recaptcha', EWZRecaptchaType::class, [
+//                    'label'       => 'password_login.profile.captcha',
+//                    'constraints' => [
+//                        new RecaptchaTrue(),
+//                    ],
+//                    'mapped'      => false,
+//                ]);
+
+                $builder->add('recaptcha', Type\CheckboxType::class, [
+                    'label'       => 'This field is normally a reCaptcha, replaced by a tick to ease your pentests',
                     'constraints' => [
-                        new RecaptchaTrue(),
+                        new Constraints\NotBlank(),
                     ],
-                    'mapped'      => false,
                 ]);
             }
         }

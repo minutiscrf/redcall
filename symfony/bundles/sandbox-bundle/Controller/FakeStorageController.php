@@ -28,6 +28,9 @@ class FakeStorageController extends BaseController
      */
     public function access(string $filename)
     {
+        // Using GCS to store stuff
+        throw $this->createNotFoundException('disabled for the hackathon');
+
         $path = FakeStorageProvider::getPath($this->kernel->getCacheDir(), $filename);
 
         if (!is_file($path)) {
