@@ -21,7 +21,7 @@
     "exercise/htmlpurifier-bundle": "^3.0",
     "fabpot/goutte": "^4",
     "facile-it/doctrine-mysql-come-back": "^1.8",
-    "firebase/php-jwt": "^5.0",
+    "firebase/php-jwt": "^6.0",
     "giggsey/libphonenumber-for-php": "^8.12",
     "google/apiclient": "^2.0",
     "google/cloud": "*",
